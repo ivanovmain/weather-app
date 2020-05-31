@@ -8,7 +8,6 @@ import SaveIcon from '@material-ui/icons/Save';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import { observer } from 'mobx-react';
 import store from '../../store';
-import { gql } from 'apollo-boost';
 import Collapse from '@material-ui/core/Collapse';
 import Alert from '@material-ui/lab/Alert';
 import IconButton from '@material-ui/core/IconButton';
@@ -54,16 +53,6 @@ const useStyles = makeStyles(() => {
 const LinkBehavior = React.forwardRef((props, ref) => (
   <RouterLink ref={ref} to='/' {...props} />
 ));
-
-const QUERY = gql`
-  query hero($city: String!) {
-    getCurrentWeather(cityName: $city) {
-      weather {
-        id
-      }
-    }
-  }
-`;
 
 function Header(props) {
   const [city, setCity] = useState('');
