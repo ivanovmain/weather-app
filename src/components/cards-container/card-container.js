@@ -2,6 +2,7 @@ import React from 'react';
 import CityCard from '../city-card';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -26,7 +27,14 @@ const CardContainer = ({cities}) => {
   return (
     <div className={styles.gridContainer}>
       <Grid container spacing={4} className={styles.gridInner}>
-        {citiesCards}
+        {
+          citiesCards.length === 0
+            ? <Typography variant='h4' component='h2'>
+              Weather list is empty.
+              Please add city.
+            </Typography>
+            : citiesCards
+        }
       </Grid>
     </div>
   )

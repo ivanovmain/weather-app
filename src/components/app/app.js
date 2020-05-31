@@ -2,7 +2,6 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import store from '../../store';
 import { configure } from 'mobx';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -27,7 +26,6 @@ class App extends React.Component {
     const { cities } = store;
     return (
       <ApolloProvider client={client}>
-        <Router>
         <Box>
           <CssBaseline/>
           <Grid container direction='column'>
@@ -56,7 +54,6 @@ class App extends React.Component {
           </Grid>
           <Footer/>
         </Box>
-        </Router>
       </ApolloProvider>
     );
   }
